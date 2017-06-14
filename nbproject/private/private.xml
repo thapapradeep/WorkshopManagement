@@ -3,27 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/OtherController.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/searchCustomer.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/searchStaff.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/staffMgmnt.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/LoginFrame.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/create_staff.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/AttendenceForm.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/customerBill.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/CustomerController.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/createCustomer.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/AttendenceController.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/StaffController.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/CarController.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/purchaseInventory.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/salaryStatement.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/SupplierController.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/carMgmnt.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/searchCar.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/addCar.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/customermgmnt.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/finalCustomerBill.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/utils/TableManager.java</file>
             <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/DashBoard1.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/OtherController.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/searchStaff.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/staffMgmnt.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/create_staff.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/customerBill.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/supplierTransaction.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/purchaseInventory.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/CreateSupplier.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/WorkshopController/SupplierController.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/SupplierManagement.java</file>
+            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/addCar.java</file>
         </group>
     </open-files>
 </project-private>

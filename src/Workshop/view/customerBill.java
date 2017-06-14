@@ -210,22 +210,24 @@ public class customerBill extends javax.swing.JPanel {
             cs.setId(idd);
             
              SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-           Date dat=sdf.parse(txt_date.getText());
+             String datee=txt_date.getText();
+           Date dat=sdf.parse(datee);
            CustomerCar cusc=new CustomerCar();
            cusc.setDate(dat);
            cusc.setCustomerId(cs);
            CarController car=new CarController();
            ResultSet rs=car.getPrice(cusc);
-           DefaultTableModel data=TableManager.buildDataTable(rs);
-           tbl_details.setModel(data);
-           this.data=data;
-           
+           DefaultTableModel model=TableManager.buildDataTable(rs);
+           tbl_details.setModel(model);
+           this.data=model;
+            float total = 0;
           for(int i = 0; i < tbl_details.getRowCount(); i++){
-        float total = 0;
-        float Amount =Float.valueOf(String.valueOf(tbl_details.getValueAt(i, 2)));
+       
+        float Amount =(float) tbl_details.getValueAt(i, 2);
         total = Amount+total;
-        lbl_total.setText(String.valueOf(total));
           }
+        lbl_total.setText(String.valueOf(total));
+          
            
         } catch (SQLException ex) {
             Logger.getLogger(customerBill.class.getName()).log(Level.SEVERE, null, ex);
@@ -254,14 +256,20 @@ public class customerBill extends javax.swing.JPanel {
             Transaction t=new Transaction();
             t.setDate(bill);
             t.setType("customer");
-            t.setTypeId(id);
+            t.setTypeId(idd);
             t.setStatus("received");
             
             float total=Float.valueOf(lbl_total.getText());
+            System.out.println(total);
             int vat=Integer.parseInt(txt_vat.getText());
+            System.out.println(vat);
             int disc=Integer.parseInt(txt_discount.getText());
-            float vatAmount=total+(vat/100*total);
-            float finalAmount=vatAmount-(disc/100*vatAmount);
+            System.out.println(disc);
+            float vatAmount1=(vat/100)*total;
+            System.out.println(vatAmount1);
+            float tot=total+vatAmount1;
+            System.out.println(tot);
+            float finalAmount=tot-(disc/100*tot);
             
             t.setAmount(finalAmount);
             

@@ -8,6 +8,7 @@ package Workshop.view;
 import Workshop.modules.Supplier;
 import Workshop.modules.Transaction;
 import WorkshopController.SupplierController;
+import WorkshopController.TransactionController;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -15,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,8 +29,10 @@ public class supplierTransaction extends javax.swing.JPanel {
      * Creates new form supplierTransaction
      */
     SupplierController sup=new SupplierController();
-    public supplierTransaction() {
+    int idd=0;
+    public supplierTransaction() throws SQLException {
         initComponents();
+        loadCombo();
     }
     public void loadCombo() throws SQLException{
         
@@ -61,6 +65,11 @@ public class supplierTransaction extends javax.swing.JPanel {
         cmb_supplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 cmb_supplierMousePressed(evt);
+            }
+        });
+        cmb_supplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_supplierActionPerformed(evt);
             }
         });
 
@@ -131,40 +140,66 @@ public class supplierTransaction extends javax.swing.JPanel {
 
     private void cmb_supplierMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmb_supplierMousePressed
         try {
-            loadCombo();
+            String name=String.valueOf(cmb_supplier.getSelectedItem());
+            Supplier supp=new Supplier();
+            supp.setName(name);
+            int id=sup.getId(supp);
+            this.idd=id;
+            DefaultTableModel data=sup.buildSupplierTable(supp);
+            tbl_goods.setModel(data);
         } catch (SQLException ex) {
             Logger.getLogger(supplierTransaction.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }//GEN-LAST:event_cmb_supplierMousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
          try {
             // TODO add your handling code here:
-            String name=String.valueOf(cmb_supplier.getSelectedItem());
-            Supplier supp=new Supplier();
-            supp.setName(name);
-            int id=sup.getId(supp);
+            
+            
             
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
             Date date=sdf.parse(txt_date.getText());
-            DefaultTableModel data=sup.buildSupplierTable(supp);
-            tbl_goods.setModel(data);
+            
             
             Transaction t=new Transaction();
             t.setDate(date);
             t.setType("supplier");
-            t.setTypeId(id);
+            t.setTypeId(idd);
             t.setStatus("paid");
+           double amount=0;
+            for(int i = 0; i < tbl_goods.getRowCount(); i++){
+             int rowrowval1=(Integer) tbl_goods.getValueAt(i, 2);
+             float rowval2=(float) tbl_goods.getValueAt(i,3);
+             float rowval=rowrowval1*rowval2;
+             amount=amount+rowval;
+            }
+            float amount1=(float)amount;
+            t.setAmount(amount1);
+            
+             TransactionController tc=new TransactionController();
+             int done=tc.doEntry(t);
+             if(done!=0){
+                 JOptionPane.showMessageDialog(null,"Paid to supplier");
+             }
+             else{
+                  JOptionPane.showMessageDialog(null,"Not paid to supplier");
+             }
+             
          
             
-        } catch (SQLException ex) {
-            Logger.getLogger(supplierTransaction.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
+            Logger.getLogger(supplierTransaction.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(supplierTransaction.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmb_supplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_supplierActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmb_supplierActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

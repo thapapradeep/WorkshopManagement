@@ -5,6 +5,8 @@
  */
 package Workshop.view;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Pradip
@@ -14,7 +16,7 @@ public class SupplierManagement extends javax.swing.JPanel {
     /**
      * Creates new form SupplierManagement
      */
-    public SupplierManagement() {
+    public SupplierManagement() throws SQLException {
         initComponents();
         tab.add(new CreateSupplier(), "Create Supplier");
         tab.add(new supplierTransaction(), "Pay to Supplier");
