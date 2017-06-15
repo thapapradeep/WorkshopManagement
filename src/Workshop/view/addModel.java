@@ -78,6 +78,10 @@ public class addModel extends javax.swing.JPanel {
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_model.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter model to be regestired");
+            }
+            else{
             String model=txt_model.getText();
             CarModel cm=new CarModel();
             cm.setModel(model);
@@ -85,6 +89,7 @@ public class addModel extends javax.swing.JPanel {
             int done=car.insertModel(cm);
             if(done!=0){
                 JOptionPane.showMessageDialog(null, "New Car Model Added");
+            }
             }
         } catch (SQLException ex) {
             Logger.getLogger(addModel.class.getName()).log(Level.SEVERE, null, ex);

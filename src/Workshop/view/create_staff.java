@@ -207,6 +207,20 @@ public class create_staff extends javax.swing.JPanel {
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_first.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter FirstName of customer");
+            }
+            else if(txt_last.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Last Name of customer");
+            }
+            else if(txt_add.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Address of customer");
+            }
+            else if(txtcon.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Contact of cusstomer");
+            }
+            else{
+            
             String fname=txt_first.getText();
             String lname=txt_last.getText();
             String user=txt_user.getText();
@@ -239,7 +253,7 @@ public class create_staff extends javax.swing.JPanel {
             }
            
                     
-            
+            }
         } catch (SQLException ex) {
             Logger.getLogger(create_staff.class.getName()).log(Level.SEVERE, null, ex);
         }

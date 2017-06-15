@@ -101,6 +101,16 @@ public class CreateSupplier extends javax.swing.JPanel {
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_name.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Please enter name of supplier");
+            }
+            else if(txt_address.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Please enter address of supplier");
+            }
+            else if(tct_contact.getText().isEmpty()){
+              JOptionPane.showMessageDialog(null, "Please enter Contact of supplier");  
+            }
+            else{
             String name=txt_name.getText();
             String address=txt_address.getText();
             int contact=Integer.parseInt(tct_contact.getText());
@@ -112,6 +122,7 @@ public class CreateSupplier extends javax.swing.JPanel {
             int done=sc.insertSupplier(sp);
             if(done!=0){
                 JOptionPane.showMessageDialog(null, "Created Successfully");
+            }
             }
         } catch (SQLException ex) {
             Logger.getLogger(CreateSupplier.class.getName()).log(Level.SEVERE, null, ex);

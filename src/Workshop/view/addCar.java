@@ -171,6 +171,16 @@ public class addCar extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_name.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter name of inventory");
+            }
+            else if(txt_price.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter price");
+            }
+            else if(txt_unit.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter available price");
+            }
+            else{
             String name=txt_name.getText();
             float price= Float.valueOf(txt_price.getText());
             int unit=Integer.parseInt(txt_unit.getText());
@@ -202,7 +212,7 @@ public class addCar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null," new Inventroy added");
             }
                 
-            
+            }
             
         } catch (SQLException ex) {
             Logger.getLogger(addCar.class.getName()).log(Level.SEVERE, null, ex);

@@ -111,6 +111,12 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_user.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter username");
+            }
+            else if(txt_password.getText().isEmpty()==true){
+             JOptionPane.showMessageDialog(null, "Please enter password");  
+            }
             String first=null;
             String last=null;
             String staffType=null;

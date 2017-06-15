@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -164,6 +165,19 @@ public class createCustomer extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
+            if(txt_first.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter FirstName of customer");
+            }
+            else if(txt_last.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Last Name of customer");
+            }
+            else if(txt_add.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Address of customer");
+            }
+            else if(txt_con.getText().isEmpty()==true){
+                JOptionPane.showMessageDialog(null, "Please enter Contact of cusstomer");
+            }
+            else{
             String fname=txt_first.getText();
             String lname=txt_last.getText();
             String address=txt_add.getText();
@@ -182,6 +196,7 @@ public class createCustomer extends javax.swing.JPanel {
             if(idd!=0){
                 StaffSelector sc=new StaffSelector(idd, service, cs);
                 sc.setVisible(true);
+            }
             }
         } catch (SQLException ex) {
             Logger.getLogger(createCustomer.class.getName()).log(Level.SEVERE, null, ex);
