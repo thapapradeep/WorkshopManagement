@@ -7,6 +7,7 @@ package Workshop.view;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,14 +18,31 @@ public class carMgmnt extends javax.swing.JPanel {
     /**
      * Creates new form carMgmnt
      */
-    public carMgmnt() throws SQLException, ParseException {
+    int var=0;
+    public carMgmnt(int var) throws SQLException, ParseException {
         initComponents();
-        
+        this.var=var;
+        if(var==1){
+           tab.add(new searchCar(var), "Search Car"); 
+           
+        }
+       else if(var==2){
         tab.add(new addCar(), "Add Car");
-        tab.add(new addModel(), "Add Model");
-        tab.add(new purchaseInventory(), "Sell");
+        tab.add(new addModel(), "Add Model"); 
+        tab.add(new searchCar(var), "Search Car");
+        }
+        else if(var==3){
+           tab.add(new searchCar(var), "Search Car"); 
+        }
+        else if(var==4){
+            tab.add(new purchaseInventory(), "Sell");
         tab.add(new customerBill(),"Billing");
-        tab.add(new searchCar(), "Search Car");
+        tab.add(new searchCar(var), "Search Car"); 
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Something went wrong");
+        }
+        
         
         this.validate();
     }

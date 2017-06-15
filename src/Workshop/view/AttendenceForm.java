@@ -63,7 +63,7 @@ public class AttendenceForm extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_staff = new javax.swing.JTable();
 
-        lbl.setText("jLabel1");
+        lbl.setText("Date");
 
         jLabel2.setText("Select The Employee and do the Attendence");
 

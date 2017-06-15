@@ -7,6 +7,7 @@ package Workshop.view;
 
 import java.sql.SQLException;
 import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,16 +17,32 @@ public class staffMgmnt extends javax.swing.JPanel {
 
     /**
      * Creates new form staffMgmnt
-     */
-    public staffMgmnt() throws SQLException, ParseException {
+     */int var=0;
+    public staffMgmnt(int var) throws SQLException, ParseException {
         initComponents();
+        this.var=var;
+        if(var==1){
+          tab.add(new searchStaff(var), "Search Staff"); 
+          tab.add(new AttendenceForm(), "Attendence");
+        }
+        else if(var==2){
         tab.add(new createStaffType(), "Add Staff Type");
         tab.add(new create_staff(), "Create Staff");
-        tab.add(new AttendenceForm(), "Attendence");
+        tab.add(new AttendenceForm(), "Attendence") ;
+        tab.add(new searchStaff(var), "Search Staff");
+        }
+        else if(var==3){
+       tab.add(new salaryStatement(), "Prepare Salary Statement");
+       tab.add(new searchStaff(var), "Search Staff");  
+        }
+        else if(var==4){
         tab.add(new salaryStatement(), "Prepare Salary Statement");
-       tab.add(new searchStaff(), "Search Staff");
-        
-        
+       tab.add(new searchStaff(var), "Search Staff");  
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Something went wrong");
+        }
+       
         this.validate();
     }
 

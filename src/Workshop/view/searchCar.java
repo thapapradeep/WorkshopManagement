@@ -24,8 +24,18 @@ public class searchCar extends javax.swing.JPanel {
      * Creates new form searchCar
      */
     int id=0;
-    public searchCar() {
+    int var=0;
+    public searchCar(int var) {
         initComponents();
+        this.var=var;
+        if(var==2){
+            upp.setVisible(true);
+            del.setVisible(true);
+        }
+        else{
+           upp.setVisible(false);
+            del.setVisible(false); 
+        }
         lbl_name.setVisible(false);
         lbl_price.setVisible(false);
         lvl_av.setVisible(false);
@@ -51,8 +61,8 @@ public class searchCar extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_car = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        upp = new javax.swing.JButton();
+        del = new javax.swing.JButton();
         lbl_name = new javax.swing.JLabel();
         lbl_price = new javax.swing.JLabel();
         txt_part = new javax.swing.JTextField();
@@ -86,17 +96,17 @@ public class searchCar extends javax.swing.JPanel {
 
         jLabel2.setText("Details of car");
 
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        upp.setText("Update");
+        upp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                uppActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Delete");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        del.setText("Delete");
+        del.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                delActionPerformed(evt);
             }
         });
 
@@ -132,9 +142,9 @@ public class searchCar extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(upp)
                         .addGap(73, 73, 73)
-                        .addComponent(jButton2)
+                        .addComponent(del)
                         .addGap(178, 178, 178))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,8 +172,8 @@ public class searchCar extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(upp)
+                    .addComponent(del)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +212,7 @@ public class searchCar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_nameKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void uppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppActionPerformed
         // TODO add your handling code here:
         if(tbl_car.getSelectedRow()!=-1){
         lbl_name.setVisible(true);
@@ -221,7 +231,7 @@ public class searchCar extends javax.swing.JPanel {
         txt_price.setText(String.valueOf(tbl_car.getValueAt(member, 4)));
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_uppActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         try {
@@ -249,7 +259,7 @@ public class searchCar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btn_updateActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
         // TODO add your handling code here:
        if(tbl_car.getSelectedRow()!=-1){
            try {
@@ -277,14 +287,13 @@ public class searchCar extends javax.swing.JPanel {
            }
            
        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_delActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_update;
     private javax.swing.JComboBox<String> cmb_type;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton del;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -296,5 +305,6 @@ public class searchCar extends javax.swing.JPanel {
     private javax.swing.JTextField txt_name;
     private javax.swing.JTextField txt_part;
     private javax.swing.JTextField txt_price;
+    private javax.swing.JButton upp;
     // End of variables declaration//GEN-END:variables
 }

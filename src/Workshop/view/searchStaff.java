@@ -27,8 +27,20 @@ public class searchStaff extends javax.swing.JPanel {
      * Creates new form searchStaff
      */
     int id=0;
-    public searchStaff() {
+    int var=0;
+    public searchStaff(int var) {
         initComponents();
+        if(var==4){
+           upp.setVisible(false);
+            del.setVisible(false);
+        }else if(var==1){
+            upp.setVisible(true);
+            del.setVisible(false);
+        }
+        else{
+           upp.setVisible(true);
+            del.setVisible(true); 
+        }
         lbl_fname.setVisible(false);
         lbl_lname.setVisible(false);
         lbl_address.setVisible(false);
@@ -58,8 +70,8 @@ public class searchStaff extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_staff = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        upp = new javax.swing.JButton();
+        del = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -103,17 +115,17 @@ public class searchStaff extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Details of staff");
 
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        upp.setText("Update");
+        upp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                uppActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Delete");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        del.setText("Delete");
+        del.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                delActionPerformed(evt);
             }
         });
 
@@ -183,9 +195,9 @@ public class searchStaff extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(54, 54, 54)
-                                .addComponent(jButton1)
+                                .addComponent(upp)
                                 .addGap(37, 37, 37)
-                                .addComponent(jButton2)
+                                .addComponent(del)
                                 .addGap(35, 35, 35)
                                 .addComponent(jButton3)
                                 .addGap(36, 36, 36)
@@ -240,8 +252,8 @@ public class searchStaff extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(upp)
+                    .addComponent(del)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
                 .addGap(18, 18, 18)
@@ -298,7 +310,7 @@ public class searchStaff extends javax.swing.JPanel {
                 Staff st=new Staff();
                 st.setFname(name);
                 StaffController staf=new StaffController();
-                tbl_staff.setModel(TableManager.buildDataTable(staf.getStaffs(st)));
+                tbl_staff.setModel(TableManager.buildDataTable(staf.getStaff(st)));
             } catch (SQLException ex) {
                 Logger.getLogger(searchStaff.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -322,7 +334,7 @@ public class searchStaff extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
         // TODO add your handling code here:
         if(tbl_staff.getSelectedRow()!=-1){
             try {
@@ -341,7 +353,7 @@ public class searchStaff extends javax.swing.JPanel {
             }
             
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_delActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -359,10 +371,10 @@ public class searchStaff extends javax.swing.JPanel {
         }
         else if(index==1){
             try {
-                Staff st=new Staff();
-                st.setFname(name);
+                Staff stat=new Staff();
+                stat.setFname(name);
                 StaffController staf=new StaffController();
-                tbl_staff.setModel(TableManager.buildDataTable(staf.getStaffs(st)));
+                tbl_staff.setModel(TableManager.buildDataTable(staf.getStaff(stat)));
             } catch (SQLException ex) {
                 Logger.getLogger(searchStaff.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -373,7 +385,7 @@ public class searchStaff extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_satffActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void uppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppActionPerformed
         // TODO add your handling code here:
         if(tbl_staff.getSelectedRow()!=-1){
             try {
@@ -395,7 +407,7 @@ public class searchStaff extends javax.swing.JPanel {
                 String fname=String.valueOf(tbl_staff.getValueAt(member, 1));
                 String lname=String.valueOf(tbl_staff.getValueAt(member, 2));
                 String address=String.valueOf(tbl_staff.getValueAt(member, 3));
-                int contact=(Integer) tbl_staff.getValueAt(member, 4);
+                int contact=Integer.parseInt(String.valueOf(tbl_staff.getValueAt(member, 4)));
                 String type=String.valueOf(tbl_staff.getValueAt(member, 5));
                 
                 txt_fname.setText(fname);
@@ -414,7 +426,7 @@ public class searchStaff extends javax.swing.JPanel {
                 Logger.getLogger(searchStaff.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_uppActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         try {
@@ -461,8 +473,7 @@ public class searchStaff extends javax.swing.JPanel {
     private javax.swing.JButton btn_update;
     private javax.swing.JComboBox<String> cmb_satff;
     private javax.swing.JComboBox<String> cmb_type;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton del;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -482,5 +493,6 @@ public class searchStaff extends javax.swing.JPanel {
     private javax.swing.JTextField txt_field;
     private javax.swing.JTextField txt_fname;
     private javax.swing.JTextField txt_lname;
+    private javax.swing.JButton upp;
     // End of variables declaration//GEN-END:variables
 }

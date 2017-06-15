@@ -25,6 +25,7 @@ public class LoginFrame extends javax.swing.JFrame {
      */
     public LoginFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -36,18 +37,30 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         txt_password = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\CarWorkShop_Management\\Project\\Img\\banner-02-n.jpg")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(null);
+
         jLabel1.setText("Enter Username");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(40, 150, 140, 15);
 
         jLabel2.setText("Enter Password");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 270, 160, 15);
+        jPanel1.add(txt_user);
+        txt_user.setBounds(310, 150, 110, 30);
 
         jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -55,54 +68,27 @@ public class LoginFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(190, 350, 90, 25);
+        jPanel1.add(txt_password);
+        txt_password.setBounds(310, 250, 110, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txt_password, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                    .addComponent(txt_user))
-                .addGap(91, 91, 91))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButton1)
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setText("Welcome to CarGiant  Login Page ");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(90, 70, 330, 22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -119,7 +105,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
             String first=null;
             String last=null;
-            String staffType=null;
+            String StaffType=null;
             int varr;
             String user=txt_user.getText();
             String password=String.valueOf(txt_password.getPassword());
@@ -129,28 +115,31 @@ public class LoginFrame extends javax.swing.JFrame {
             StaffController staa=new StaffController();
             ResultSet done=staa.doLogin(sta);
            if(done.next()){
-             /*  while(done.next()){
+               done.previous();
+            while(done.next()){
                    first=done.getString("fname");
-                   last=done.getString("last");
-                   staffType=done.getString("staff_type"); 
+                   last=done.getString("lname");
+                   StaffType=done.getString("staff_type"); 
                }
-               if(!staffType.equals("receptionist"))if(staffType.equals("accountant")){
+               System.out.println(StaffType);
+               if(StaffType.equals("receptionist")){
+                   varr=1;
+               }
+               else if(StaffType.equals("admin")){
                    varr=2;
                }
-               else if(staffType.equals("admiin")){
+               else if(StaffType.equals("manager")){
                    varr=3;
-               }
-               else if(staffType.equals("manager")){
-                   varr=-4;
                    
                }
-               else{
-                   varr=0;
+               else if(StaffType.equals("accountant")){
+                   varr=4;
                }
                else {
-                   varr=1;
-                } */
-               DashBoard1 db=new DashBoard1();
+                   varr=0;
+                }
+               System.out.println(varr);
+               DashBoard1 db=new DashBoard1(varr);
                db.setVisible(true);
                this.dispose();
                
@@ -202,6 +191,8 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_user;

@@ -63,7 +63,7 @@ public class StaffController {
             return done;
              }
         
-        public ResultSet getStaff(StaffType staffs) throws SQLException{
+        public ResultSet getStaffTable(StaffType staffs) throws SQLException{
             ResultSet rss;
             String sql="select s.id, s.fname, s.lname, s.address, s.contact, st.staff_type from staff s, staff_type st where s.staff_type_id=st.id and staff_type like'"+staffs.getStaffType()+'%'+"'";
             st=con.createStatement();
@@ -71,8 +71,8 @@ public class StaffController {
             return rss;
         }
         
-        public DefaultTableModel buildStaffTable(StaffType sta) throws SQLException{
-            DefaultTableModel data=TableManager.buildDataTable(getStaff(sta));
+        public DefaultTableModel buildStaffTable(StaffType staa) throws SQLException{
+            DefaultTableModel data=TableManager.buildDataTable(getStaffTable(staa));
             return data;
         }
         
@@ -119,9 +119,9 @@ public class StaffController {
        return rss;
         }
         
-         public ResultSet getStaffs(Staff staffs) throws SQLException{
+         public ResultSet getStaff(Staff staffs) throws SQLException{
             ResultSet rss;
-            String sql="select s.id, s.fname, s.lname, s.address, st.staff_type from staff s, staff_type st where st.id=s.staff_type_id and  s.fname like'"+staffs.getFname()+'%'+"'";
+            String sql="select s.id, s.fname, s.lname, s.address, s.contact, st.staff_type from staff s, staff_type st where st.id=s.staff_type_id and  s.fname like'"+staffs.getFname()+'%'+"'";
             st=con.createStatement();
             rss=st.executeQuery(sql);
             return rss;
@@ -137,7 +137,7 @@ public class StaffController {
 
     public int updateStaff(Staff staff) throws SQLException {
         int done=0;
-        String sql="update staff set fname='"+staff.getFname()+"', lname='"+staff.getLname()+"', address='"+staff.getAddress()+"', contact="+staff.getContact()+", staff_type_id="+staff.getStaffTypeId().getId()+"";
+        String sql="update staff set fname='"+staff.getFname()+"', lname='"+staff.getLname()+"', address='"+staff.getAddress()+"', contact="+staff.getContact()+", staff_type_id="+staff.getStaffTypeId().getId()+" where id="+staff.getId()+"";
         st=con.createStatement();
         done=st.executeUpdate(sql);
         return done;

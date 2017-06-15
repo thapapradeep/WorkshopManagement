@@ -144,6 +144,9 @@ public class StaffSelector extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "New Customer Created");
                       this.dispose();   
                 }
+                else{
+                     JOptionPane.showMessageDialog(null, "No Customer Created");
+                }
                 
             } catch (SQLException ex) {
                 Logger.getLogger(StaffSelector.class.getName()).log(Level.SEVERE, null, ex);

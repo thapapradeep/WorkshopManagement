@@ -20,8 +20,16 @@ public class DashBoard1 extends javax.swing.JFrame {
     /**
      * Creates new form DashBoard1
      */
-    public DashBoard1() {
+    int var=0;
+    public DashBoard1(int var) {
         initComponents();
+        this.var=var;
+        if(var==2 || var==4){
+            supp_menu.setVisible(true);
+        }
+        else{
+          supp_menu.setVisible(false);  
+        }
         this.setExtendedState(this.MAXIMIZED_BOTH);
        
     }
@@ -42,10 +50,9 @@ public class DashBoard1 extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        supp_menu = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
 
@@ -55,7 +62,13 @@ public class DashBoard1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuBar1.setForeground(new java.awt.Color(102, 102, 255));
+        jMenuBar1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jMenu1.setForeground(new java.awt.Color(0, 0, 0));
         jMenu1.setText("Customer Controller");
+        jMenu1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -63,7 +76,9 @@ public class DashBoard1 extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(0, 0, 0));
         jMenu2.setText("Staff Controller");
+        jMenu2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
@@ -74,7 +89,9 @@ public class DashBoard1 extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setForeground(new java.awt.Color(0, 0, 0));
         jMenu3.setText("Car Controller");
+        jMenu3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -82,10 +99,19 @@ public class DashBoard1 extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu3);
 
-        jMenu5.setText("Views");
-        jMenuBar1.add(jMenu5);
+        supp_menu.setForeground(new java.awt.Color(0, 0, 0));
+        supp_menu.setText("Supplier Controller");
+        supp_menu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        supp_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                supp_menuMousePressed(evt);
+            }
+        });
+        jMenuBar1.add(supp_menu);
 
+        jMenu7.setForeground(new java.awt.Color(0, 0, 0));
         jMenu7.setText("Logout");
+        jMenu7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenu7MousePressed(evt);
@@ -93,21 +119,15 @@ public class DashBoard1 extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu7);
 
+        jMenu8.setForeground(new java.awt.Color(51, 51, 51));
         jMenu8.setText("Exit");
+        jMenu8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jMenu8MousePressed(evt);
             }
         });
         jMenuBar1.add(jMenu8);
-
-        jMenu10.setText("Supplier Controller");
-        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenu10MousePressed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu10);
 
         setJMenuBar(jMenuBar1);
 
@@ -128,7 +148,7 @@ public class DashBoard1 extends javax.swing.JFrame {
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         try {
             // TODO add your handling code here:
-            this.setContentPane(new customermgmnt());
+            this.setContentPane(new customermgmnt(var));
             this.validate();
         } catch (SQLException ex) {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +162,7 @@ public class DashBoard1 extends javax.swing.JFrame {
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         try {
             // TODO add your handling code here:
-            this.setContentPane(new carMgmnt());
+            this.setContentPane(new carMgmnt(var));
         } catch (SQLException ex) {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -160,7 +180,7 @@ public class DashBoard1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            this.setContentPane(new staffMgmnt());
+            this.setContentPane(new staffMgmnt(var));
             this.validate();
         } catch (SQLException ex) {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,11 +196,16 @@ public class DashBoard1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu7MousePressed
 
-    private void jMenu10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MousePressed
-        // TODO add your handling code here:
-        this.setContentPane(new SupplierManagement());
+    private void supp_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp_menuMousePressed
+        try {
+            // TODO add your handling code here:]
+            
+            this.setContentPane(new SupplierManagement(var));
+        } catch (SQLException ex) {
+            Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.validate();
-    }//GEN-LAST:event_jMenu10MousePressed
+    }//GEN-LAST:event_supp_menuMousePressed
 
     /**
      * @param args the command line arguments
@@ -190,15 +215,14 @@ public class DashBoard1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu supp_menu;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,9 @@ public class CustomerController {
     
     public int doInsert(Customer cs) throws SQLException{
        int done=0;
-       String sql="insert into customer values(null, '"+cs.getFname()+"', '"+cs.getLname()+"', '"+cs.getAddress()+"', "+cs.getContact()+", "+cs.getServiceId().getId()+", "+cs.getStaffId().getId()+")";
+        System.out.println(cs.getServiceId().getId());
+        System.out.println(cs.getStaffId().getId());
+       String sql="insert into customer values(null, '"+cs.getFname()+"', '"+cs.getLname()+"', '"+cs.getAddress()+"', "+cs.getContact()+", "+cs.getStaffId().getId()+", "+cs.getServiceId().getId()+")";
        st=con.createStatement();
        done=st.executeUpdate(sql);
        return done;

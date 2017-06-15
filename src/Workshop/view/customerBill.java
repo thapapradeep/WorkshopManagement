@@ -260,25 +260,29 @@ public class customerBill extends javax.swing.JPanel {
             t.setStatus("received");
             
             float total=Float.valueOf(lbl_total.getText());
-            System.out.println(total);
+           
             int vat=Integer.parseInt(txt_vat.getText());
-            System.out.println(vat);
+            
             int disc=Integer.parseInt(txt_discount.getText());
-            System.out.println(disc);
-            float vatAmount1=(vat/100)*total;
-            System.out.println(vatAmount1);
-            float tot=total+vatAmount1;
-            System.out.println(tot);
-            float finalAmount=tot-(disc/100*tot);
+           
+            double vatAmount1=vat*0.01*total;
+           
+         double tot=total+vatAmount1;
             
-            t.setAmount(finalAmount);
+            double discamt=disc*0.01*tot;
+           double finalamt=tot-discamt;
+           float amountt=(float) finalamt;
             
-            TransactionController tc=new TransactionController();
+            
+           t.setAmount(amountt);
+            
+           TransactionController tc=new TransactionController();
             int done=tc.doEntry(t);
             if(done!=0){
-                finalCustomerBill bc=new finalCustomerBill(data,fullname,bill,vat,disc,finalAmount);
+                finalCustomerBill bc=new finalCustomerBill(data,fullname,bill,vat,disc,amountt);
                bc.setVisible(true);
             }
+
             
             
         } catch (ParseException ex) {

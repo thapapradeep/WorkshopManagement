@@ -6,21 +6,40 @@
 package Workshop.view;
 
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Pradip
  */
+
 public class customermgmnt extends javax.swing.JPanel {
 
     /**
      * Creates new form CustomerController
      */
-    public customermgmnt() throws SQLException {
+    int var=0;
+    public customermgmnt(int var) throws SQLException {
         initComponents();
+        this.var=var;
+        if(var==1){
+            tb1.add(new createCustomer(), "Add Customer");
+         tb1.add(new searchCustomer(var), "Search Customer");   
+        }
+        else if(var==2){
         tb1.add(new createCustomer(), "Add Customer");
-        tb1.add(new searchCustomer(), "Search Customer");
-        //tb1.add(new create_staff(), "Add Staff");
+        tb1.add(new searchCustomer(var), "Search Customer");  
+        }
+        else if(var==3){
+          tb1.add(new searchCustomer(var), "Search Customer");  
+        }
+        else if(var==4){
+             tb1.add(new searchCustomer(var), "Search Customer");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Something Went Wrong");
+        }
+        
         
         this.validate();
     }

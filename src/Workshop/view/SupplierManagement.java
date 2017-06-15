@@ -6,6 +6,7 @@
 package Workshop.view;
 
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,11 +17,20 @@ public class SupplierManagement extends javax.swing.JPanel {
     /**
      * Creates new form SupplierManagement
      */
-    public SupplierManagement() throws SQLException {
+    
+    public SupplierManagement(int var) throws SQLException {
         initComponents();
-        tab.add(new CreateSupplier(), "Create Supplier");
-        tab.add(new supplierTransaction(), "Pay to Supplier");
-        this.validate();
+        if(var==2){
+         tab.add(new CreateSupplier(), "Create Supplier");
+        tab.add(new supplierTransaction(), "Pay to Supplier");  
+        }
+        else if(var==4){
+            tab.add(new supplierTransaction(), "Pay to Supplier");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Something went wrong");
+        }
+        
     }
 
     /**

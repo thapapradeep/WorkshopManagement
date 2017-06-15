@@ -25,8 +25,16 @@ public class searchCustomer extends javax.swing.JPanel {
      * Creates new form searchCustomer
      */
     int id=0;
-    public searchCustomer() {
+    public searchCustomer(int var) {
         initComponents();
+        if(var==2 || var==3){
+            up.setVisible(true);
+            del.setVisible(true);
+        }
+        else{
+         up.setVisible(false);
+            del.setVisible(false);   
+        }
         lbl1.setVisible(false);
         txt_fname.setVisible(false);
         header.setVisible(false);
@@ -54,8 +62,8 @@ public class searchCustomer extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_customer = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        up = new javax.swing.JButton();
+        del = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -95,17 +103,17 @@ public class searchCustomer extends javax.swing.JPanel {
 
         jLabel2.setText("Detaiils of customer");
 
-        jButton1.setText("Update");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        up.setText("Update");
+        up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                upActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Delete");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        del.setText("Delete");
+        del.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                delActionPerformed(evt);
             }
         });
 
@@ -184,9 +192,9 @@ public class searchCustomer extends javax.swing.JPanel {
                                         .addGap(92, 92, 92)
                                         .addComponent(jButton3)
                                         .addGap(67, 67, 67)
-                                        .addComponent(jButton1)
+                                        .addComponent(up)
                                         .addGap(35, 35, 35)
-                                        .addComponent(jButton2))
+                                        .addComponent(del))
                                     .addComponent(header)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -224,8 +232,8 @@ public class searchCustomer extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(up)
+                    .addComponent(del))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
@@ -271,7 +279,7 @@ public class searchCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_nameKeyPressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delActionPerformed
         // TODO add your handling code here:
         if(tbl_customer.getSelectedRow()!=-1){
             try {
@@ -288,7 +296,7 @@ public class searchCustomer extends javax.swing.JPanel {
                 Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_delActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
@@ -323,7 +331,7 @@ public class searchCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
         // TODO add your handling code here:
         if(tbl_customer.getSelectedRow()!=-1){
             lbl1.setVisible(true);
@@ -349,7 +357,7 @@ public class searchCustomer extends javax.swing.JPanel {
             txtContact.setText(String.valueOf(contact));
             int conn=Integer.parseInt(txtContact.getText());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_upActionPerformed
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         try {
@@ -395,9 +403,8 @@ public class searchCustomer extends javax.swing.JPanel {
     private javax.swing.JLabel add;
     private javax.swing.JButton btn_update;
     private javax.swing.JLabel con;
+    private javax.swing.JButton del;
     private javax.swing.JLabel header;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -414,5 +421,6 @@ public class searchCustomer extends javax.swing.JPanel {
     private javax.swing.JTextField txt_fname;
     private javax.swing.JTextField txt_lname;
     private javax.swing.JTextField txt_name;
+    private javax.swing.JButton up;
     // End of variables declaration//GEN-END:variables
 }
