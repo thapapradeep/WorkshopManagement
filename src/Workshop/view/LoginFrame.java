@@ -138,7 +138,7 @@ public class LoginFrame extends javax.swing.JFrame {
                else {
                    varr=0;
                 }
-               System.out.println(varr);
+               //System.out.println(varr);
                DashBoard1 db=new DashBoard1(varr, first, last);
                db.setVisible(true);
                this.dispose();

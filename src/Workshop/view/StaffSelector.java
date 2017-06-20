@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author Pradip
  */
-public class StaffSelector extends javax.swing.JFrame {
+public class StaffSelector extends javax.swing.JFrame{
 
     /** Creates new form StaffSelector */
     int id=0;
