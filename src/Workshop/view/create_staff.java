@@ -26,7 +26,7 @@ public class create_staff extends javax.swing.JPanel {
      * Creates new form create_staff
      * @throws java.sql.SQLException
      */
-    public create_staff() throws SQLException {
+    public create_staff() throws SQLException, ClassNotFoundException {
        
         
        
@@ -35,7 +35,7 @@ public class create_staff extends javax.swing.JPanel {
         fillCombo();
        
     }
-    public void fillCombo() throws SQLException{
+    public void fillCombo() throws SQLException, ClassNotFoundException{
          ResultSet rss;
         StaffController staf=new StaffController();
        rss=staf.getAllType();

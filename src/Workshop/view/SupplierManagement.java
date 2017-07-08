@@ -28,7 +28,8 @@ public class SupplierManagement extends javax.swing.JPanel {
             tab.add(new supplierTransaction(), "Pay to Supplier");
         }
         else{
-            JOptionPane.showMessageDialog(null, "Something went wrong");
+           
+            this.setEnabled(false);
         }
         
     }

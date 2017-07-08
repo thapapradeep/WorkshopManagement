@@ -36,6 +36,7 @@ public class DashBoard1 extends javax.swing.JFrame {
         if(var==1){
             
             lbl_pos.setText("Receptionist");
+            supp_menu.setVisible(false);
         }
         else if(var==2){
             supp_menu.setVisible(true);
@@ -151,6 +152,9 @@ public class DashBoard1 extends javax.swing.JFrame {
         supp_menu.setText("Supplier Controller");
         supp_menu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         supp_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supp_menuMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 supp_menuMousePressed(evt);
             }
@@ -235,6 +239,8 @@ public class DashBoard1 extends javax.swing.JFrame {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenu2MousePressed
 
@@ -265,6 +271,10 @@ public class DashBoard1 extends javax.swing.JFrame {
             Logger.getLogger(DashBoard1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenu11MousePressed
+
+    private void supp_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp_menuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supp_menuMouseClicked
 
     /**
      * @param args the command line arguments

@@ -18,7 +18,7 @@ public class staffMgmnt extends javax.swing.JPanel {
     /**
      * Creates new form staffMgmnt
      */int var=0;
-    public staffMgmnt(int var) throws SQLException, ParseException {
+    public staffMgmnt(int var) throws SQLException,ClassNotFoundException, ParseException {
         initComponents();
         this.var=var;
         if(var==1){

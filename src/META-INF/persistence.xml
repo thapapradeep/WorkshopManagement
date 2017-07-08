@@ -10,7 +10,6 @@
     <class>Workshop.modules.CarPart</class>
     <class>Workshop.modules.Staff</class>
     <class>Workshop.modules.Attendence</class>
-    <class>Workshop.modules.CustomerCar</class>
     <class>Workshop.modules.Transaction</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/workshop?zeroDateTimeBehavior=convertToNull"/>

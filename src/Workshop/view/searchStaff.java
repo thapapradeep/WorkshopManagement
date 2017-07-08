@@ -28,7 +28,7 @@ public class searchStaff extends javax.swing.JPanel {
      */
     int id=0;
     int var=0;
-    public searchStaff(int var) {
+    public searchStaff(int var) throws ClassNotFoundException{
         initComponents();
         if(var==4){
            upp.setVisible(false);
