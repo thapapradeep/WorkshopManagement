@@ -20,8 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,23 +27,9 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "staff")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Staff.findAll", query = "SELECT s FROM Staff s")
-    , @NamedQuery(name = "Staff.findById", query = "SELECT s FROM Staff s WHERE s.id = :id")
-    , @NamedQuery(name = "Staff.findByFname", query = "SELECT s FROM Staff s WHERE s.fname = :fname")
-    , @NamedQuery(name = "Staff.findByLname", query = "SELECT s FROM Staff s WHERE s.lname = :lname")
-    , @NamedQuery(name = "Staff.findByUsername", query = "SELECT s FROM Staff s WHERE s.username = :username")
-    , @NamedQuery(name = "Staff.findByPassword", query = "SELECT s FROM Staff s WHERE s.password = :password")
-    , @NamedQuery(name = "Staff.findByAddress", query = "SELECT s FROM Staff s WHERE s.address = :address")
-    , @NamedQuery(name = "Staff.findByContact", query = "SELECT s FROM Staff s WHERE s.contact = :contact")})
+    @NamedQuery(name = "Staff.findAll", query = "SELECT s FROM Staff s")})
 public class Staff implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffId")
-    private Collection<Customer> customerCollection;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffId")
-    private Collection<Attendence> attendenceCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -72,6 +56,10 @@ public class Staff implements Serializable {
     @JoinColumn(name = "staff_type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private StaffType staffTypeId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffId")
+    private Collection<Attendence> attendenceCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffId")
+    private Collection<Customer> customerCollection;
 
     public Staff() {
     }
@@ -152,6 +140,22 @@ public class Staff implements Serializable {
         this.staffTypeId = staffTypeId;
     }
 
+    public Collection<Attendence> getAttendenceCollection() {
+        return attendenceCollection;
+    }
+
+    public void setAttendenceCollection(Collection<Attendence> attendenceCollection) {
+        this.attendenceCollection = attendenceCollection;
+    }
+
+    public Collection<Customer> getCustomerCollection() {
+        return customerCollection;
+    }
+
+    public void setCustomerCollection(Collection<Customer> customerCollection) {
+        this.customerCollection = customerCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -175,24 +179,6 @@ public class Staff implements Serializable {
     @Override
     public String toString() {
         return "Workshop.modules.Staff[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Attendence> getAttendenceCollection() {
-        return attendenceCollection;
-    }
-
-    public void setAttendenceCollection(Collection<Attendence> attendenceCollection) {
-        this.attendenceCollection = attendenceCollection;
-    }
-
-    @XmlTransient
-    public Collection<Customer> getCustomerCollection() {
-        return customerCollection;
-    }
-
-    public void setCustomerCollection(Collection<Customer> customerCollection) {
-        this.customerCollection = customerCollection;
     }
     
 }

@@ -7,6 +7,19 @@ package Workshop.modules;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -14,12 +27,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "attendence")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Attendence.findAll", query = "SELECT a FROM Attendence a")
-    , @NamedQuery(name = "Attendence.findById", query = "SELECT a FROM Attendence a WHERE a.id = :id")
-    , @NamedQuery(name = "Attendence.findByDate", query = "SELECT a FROM Attendence a WHERE a.date = :date")
-    , @NamedQuery(name = "Attendence.findByStatus", query = "SELECT a FROM Attendence a WHERE a.status = :status")})
+    @NamedQuery(name = "Attendence.findAll", query = "SELECT a FROM Attendence a")})
 public class Attendence implements Serializable {
 
     private static final long serialVersionUID = 1L;

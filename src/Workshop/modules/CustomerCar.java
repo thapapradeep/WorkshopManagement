@@ -20,7 +20,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,11 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "customer_car")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CustomerCar.findAll", query = "SELECT c FROM CustomerCar c")
-    , @NamedQuery(name = "CustomerCar.findById", query = "SELECT c FROM CustomerCar c WHERE c.id = :id")
-    , @NamedQuery(name = "CustomerCar.findByDate", query = "SELECT c FROM CustomerCar c WHERE c.date = :date")})
+    @NamedQuery(name = "CustomerCar.findAll", query = "SELECT c FROM CustomerCar c")})
 public class CustomerCar implements Serializable {
 
     private static final long serialVersionUID = 1L;

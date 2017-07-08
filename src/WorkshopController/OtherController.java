@@ -62,11 +62,11 @@ public class OtherController {
 }
 
     public int insertPurchase(CustomerCar cusc) throws SQLException {
-        int done=0;
-        String sql="insert into customer_car values(null, "+cusc.getCarId().getId()+", "+cusc.getCustomerId().getId()+",'"+new java.sql.Date(cusc.getDate().getTime())+"')";
-        st=con.createStatement();
-        done=st.executeUpdate(sql);
+        int done = 0;
+        String sql = "insert into customer_car values(null, " + cusc.getCarId().getId() + ", " + cusc.getCustomerId().getId() + ",'" + new java.sql.Date(cusc.getDate().getTime()) + "')";
+        st = con.createStatement();
+        done = st.executeUpdate(sql);
         return done;
-        
+
     }
 }

@@ -33,6 +33,7 @@ public class DashBoard1 extends javax.swing.JFrame {
         this.lname=lname;
        lbl_lname.setText(lname);
        lbl_fname.setText(fname);
+       mn_pl.setVisible(false);
         if(var==1){
             
             lbl_pos.setText("Receptionist");
@@ -45,6 +46,7 @@ public class DashBoard1 extends javax.swing.JFrame {
         else if(var==3){
            
             lbl_pos.setText("Manager");
+            mn_pl.setVisible(true);
         }
         else if(var==4){
             supp_menu.setVisible(true);
@@ -74,14 +76,17 @@ public class DashBoard1 extends javax.swing.JFrame {
         lbl_lname = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lbl_pos = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         supp_menu = new javax.swing.JMenu();
+        mn_pl = new javax.swing.JMenu();
+        mn_home = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
 
         jMenu4.setText("jMenu4");
 
@@ -94,22 +99,30 @@ public class DashBoard1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lbl_fname.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_fname.setText("fname");
         getContentPane().add(lbl_fname);
-        lbl_fname.setBounds(330, 180, 120, 15);
+        lbl_fname.setBounds(20, 150, 120, 24);
 
+        lbl_lname.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_lname.setText("lname");
         getContentPane().add(lbl_lname);
-        lbl_lname.setBounds(520, 180, 140, 15);
+        lbl_lname.setBounds(190, 150, 170, 24);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("Welcome to CarGiant Management System");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(270, 100, 344, 22);
+        jLabel3.setBounds(10, 70, 344, 22);
 
+        lbl_pos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_pos.setText("Position");
         getContentPane().add(lbl_pos);
-        lbl_pos.setBounds(340, 240, 150, 15);
+        lbl_pos.setBounds(190, 230, 210, 24);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("Post");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 230, 90, 24);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setForeground(new java.awt.Color(102, 102, 255));
@@ -161,6 +174,37 @@ public class DashBoard1 extends javax.swing.JFrame {
         });
         jMenuBar1.add(supp_menu);
 
+        mn_pl.setBackground(new java.awt.Color(102, 102, 102));
+        mn_pl.setForeground(new java.awt.Color(0, 0, 0));
+        mn_pl.setText("PLStatement");
+        mn_pl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mn_plMousePressed(evt);
+            }
+        });
+        jMenuBar1.add(mn_pl);
+
+        mn_home.setBackground(new java.awt.Color(51, 51, 51));
+        mn_home.setForeground(new java.awt.Color(0, 0, 0));
+        mn_home.setText("Home");
+        mn_home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                mn_homeMousePressed(evt);
+            }
+        });
+        jMenuBar1.add(mn_home);
+
+        jMenu11.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu11.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu11.setText("Help");
+        jMenu11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenu11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu11MousePressed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu11);
+
         jMenu7.setForeground(new java.awt.Color(0, 0, 0));
         jMenu7.setText("Logout");
         jMenu7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -181,17 +225,6 @@ public class DashBoard1 extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu8);
-
-        jMenu11.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu11.setForeground(new java.awt.Color(0, 0, 0));
-        jMenu11.setText("Help");
-        jMenu11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jMenu11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenu11MousePressed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
@@ -276,6 +309,22 @@ public class DashBoard1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_supp_menuMouseClicked
 
+    private void mn_plMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mn_plMousePressed
+        // TODO add your handling code here:
+        this.setContentPane(new profitLoss());
+        this.validate();
+    }//GEN-LAST:event_mn_plMousePressed
+
+    private void mn_homeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mn_homeMousePressed
+        // TODO add your handling code here:
+         
+         this.getContentPane().removeAll(); 
+  
+     
+        
+        
+    }//GEN-LAST:event_mn_homeMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -283,6 +332,7 @@ public class DashBoard1 extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
@@ -298,6 +348,8 @@ public class DashBoard1 extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_fname;
     private javax.swing.JLabel lbl_lname;
     private javax.swing.JLabel lbl_pos;
+    private javax.swing.JMenu mn_home;
+    private javax.swing.JMenu mn_pl;
     private javax.swing.JMenu supp_menu;
     // End of variables declaration//GEN-END:variables
 }

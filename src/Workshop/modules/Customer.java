@@ -20,8 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,18 +27,9 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "customer")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
-    , @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id")
-    , @NamedQuery(name = "Customer.findByFname", query = "SELECT c FROM Customer c WHERE c.fname = :fname")
-    , @NamedQuery(name = "Customer.findByLname", query = "SELECT c FROM Customer c WHERE c.lname = :lname")
-    , @NamedQuery(name = "Customer.findByAddress", query = "SELECT c FROM Customer c WHERE c.address = :address")
-    , @NamedQuery(name = "Customer.findByContact", query = "SELECT c FROM Customer c WHERE c.contact = :contact")})
+    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")})
 public class Customer implements Serializable {
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
-    private Collection<CustomerCar> customerCarCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -60,6 +49,8 @@ public class Customer implements Serializable {
     @Basic(optional = false)
     @Column(name = "contact")
     private int contact;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerId")
+    private Collection<CustomerCar> customerCarCollection;
     @JoinColumn(name = "staff_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Staff staffId;
@@ -122,6 +113,14 @@ public class Customer implements Serializable {
         this.contact = contact;
     }
 
+    public Collection<CustomerCar> getCustomerCarCollection() {
+        return customerCarCollection;
+    }
+
+    public void setCustomerCarCollection(Collection<CustomerCar> customerCarCollection) {
+        this.customerCarCollection = customerCarCollection;
+    }
+
     public Staff getStaffId() {
         return staffId;
     }
@@ -161,15 +160,6 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "Workshop.modules.Customer[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public Collection<CustomerCar> getCustomerCarCollection() {
-        return customerCarCollection;
-    }
-
-    public void setCustomerCarCollection(Collection<CustomerCar> customerCarCollection) {
-        this.customerCarCollection = customerCarCollection;
     }
     
 }

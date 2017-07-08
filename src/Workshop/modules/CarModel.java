@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,11 +25,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "car_model")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CarModel.findAll", query = "SELECT c FROM CarModel c")
-    , @NamedQuery(name = "CarModel.findById", query = "SELECT c FROM CarModel c WHERE c.id = :id")
-    , @NamedQuery(name = "CarModel.findByModel", query = "SELECT c FROM CarModel c WHERE c.model = :model")})
+    @NamedQuery(name = "CarModel.findAll", query = "SELECT c FROM CarModel c")})
 public class CarModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -74,7 +69,6 @@ public class CarModel implements Serializable {
         this.model = model;
     }
 
-    @XmlTransient
     public Collection<CarPart> getCarPartCollection() {
         return carPartCollection;
     }

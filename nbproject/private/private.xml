@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/DashBoard1.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/SupplierManagement.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/LoginFrame.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/customerBill.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/purchaseInventory.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/create_staff.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/finalCustomerBill.java</file>
-            <file>file:/D:/CarWorkShop_Management/Project/Java%20Files/WorkshopManagement/src/Workshop/view/AttendenceForm.java</file>
+            <file>file:/D:/PIIT/JavaApplication8/src/Workshop/view/profitLoss.java</file>
+            <file>file:/D:/PIIT/JavaApplication8/src/WorkshopController/TransactionController.java</file>
+            <file>file:/D:/PIIT/JavaApplication8/src/Workshop/view/supplierTransaction.java</file>
+            <file>file:/D:/PIIT/JavaApplication8/src/Workshop/view/LoginFrame.java</file>
         </group>
     </open-files>
 </project-private>

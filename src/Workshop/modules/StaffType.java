@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,12 +25,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "staff_type")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "StaffType.findAll", query = "SELECT s FROM StaffType s")
-    , @NamedQuery(name = "StaffType.findById", query = "SELECT s FROM StaffType s WHERE s.id = :id")
-    , @NamedQuery(name = "StaffType.findByStaffType", query = "SELECT s FROM StaffType s WHERE s.staffType = :staffType")
-    , @NamedQuery(name = "StaffType.findByDailyWage", query = "SELECT s FROM StaffType s WHERE s.dailyWage = :dailyWage")})
+    @NamedQuery(name = "StaffType.findAll", query = "SELECT s FROM StaffType s")})
 public class StaffType implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -87,7 +81,6 @@ public class StaffType implements Serializable {
         this.dailyWage = dailyWage;
     }
 
-    @XmlTransient
     public Collection<Staff> getStaffCollection() {
         return staffCollection;
     }

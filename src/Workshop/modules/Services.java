@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,11 +25,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "services")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Services.findAll", query = "SELECT s FROM Services s")
-    , @NamedQuery(name = "Services.findById", query = "SELECT s FROM Services s WHERE s.id = :id")
-    , @NamedQuery(name = "Services.findByName", query = "SELECT s FROM Services s WHERE s.name = :name")})
+    @NamedQuery(name = "Services.findAll", query = "SELECT s FROM Services s")})
 public class Services implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,8 +38,6 @@ public class Services implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffId")
-    private Collection<Attendence> attendenceCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "serviceId")
     private Collection<Customer> customerCollection;
 
@@ -76,16 +69,6 @@ public class Services implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
-    public Collection<Attendence> getAttendenceCollection() {
-        return attendenceCollection;
-    }
-
-    public void setAttendenceCollection(Collection<Attendence> attendenceCollection) {
-        this.attendenceCollection = attendenceCollection;
-    }
-
-    @XmlTransient
     public Collection<Customer> getCustomerCollection() {
         return customerCollection;
     }
